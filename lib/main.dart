@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-
+void main() {
+  runApp(MaterialApp(home: HomePage()));
+}
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Egor SolidSoftware test task',
-      theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
+      title: 'Solid Software Test Task',
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
+      home: MyHomePage(),
+
     );
   }
 }
@@ -27,10 +33,10 @@ class _MyHomePageState extends State<MyHomePage> {
   void changeColor() {
     setState(() {
       _color = Color.fromARGB(
-          _random.nextInt(256),
-          _random.nextInt(256),
-          _random.nextInt(256),
-          _random.nextInt(256),
+        _random.nextInt(256),
+        _random.nextInt(256),
+        _random.nextInt(256),
+        _random.nextInt(256),
       );
     });
   }
@@ -38,25 +44,15 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: InkWell(
-        onTap: changeColor,
-        child: Container(
-          color: _color,
-          child: Center(
-            child: Text("Hey there",
-              style: TextStyle(
-                color: _color,
-              fontWeight: FontWeight.bold,
-              fontSize: 35.0,
+        body: InkWell(
+          onTap: changeColor,
+          child: Container(
+            color: _color,
 
-            ),)
-            ,
-          )
 
-        ),
-      )
+
+          ),
+        )
     );
   }
 }
-
-void main() => runApp(HomePage());
